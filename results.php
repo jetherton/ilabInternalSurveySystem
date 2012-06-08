@@ -71,12 +71,16 @@ ini_set( 'display_errors','1');
 				?>
 			</tr>
 			<?php
-				for($j = 100; $j >= 0; $j--)
+				for($j = 100; $j >= 1; $j--)
 				{
 					echo "<tr>";
 					for($i = 0; $i < 10; $i++)
 					{
-						$percentage = intval(100 * (floatval($results[$i]) / floatval($totalResponses)));
+						$percentage = 0;
+						if(floatval($totalResponses) != 0)
+						{
+							$percentage = intval(100 * (floatval($results[$i]) / floatval($totalResponses)));
+						}
 						$backGroundColor = "#fff";
 						if($percentage >= $j)
 						{
